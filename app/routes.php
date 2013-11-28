@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/home', array( 'before' => 'auth', 'as' => 'home', function()
+Route::get('/', array( 'before' => 'auth', 'as' => 'home', function()
 {
 	return View::make('home');
 }));

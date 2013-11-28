@@ -94,7 +94,7 @@ Route::filter('auth.permission', function($route, $request, $value)
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::check()) return Redirect::route('home');
 });
 
 /*

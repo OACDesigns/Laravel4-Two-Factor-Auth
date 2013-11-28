@@ -44,6 +44,7 @@ vendor/
 
 # Other #
 #########
+composer.lock
 public/.htaccess
 laravel4-two-factor-auth-project.sublime-project
 laravel4-two-factor-auth-project.sublime-workspace

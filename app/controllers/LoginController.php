@@ -30,7 +30,7 @@ class LoginController extends BaseController {
 				);
 				$validator = Validator::make(Input::all(), $rules);
 				if ($validator->fails()) {
-					return Redirect::to('login')
+					return Redirect::route('login')
 						->withErrors($validator) // send back all errors to the login form
 						->withInput(Input::except('password', 'password2')); // send back the input (not the password) so that we can repopulate the form
 				}
@@ -45,7 +45,7 @@ class LoginController extends BaseController {
 				//NB:Sentry::authenticate will throw an error is no user found or an exception occures, otherwise it returns the User if successfuly authenticated
 				if (Sentry::authenticate($credentials, $remember)) 	
 					// validation successful!
-					return Redirect::intended('home');
+					return Redirect::intended('/');
 			}
 				
 			/*----------Normal Login---------*/
@@ -57,7 +57,7 @@ class LoginController extends BaseController {
 			);
 			$validator = Validator::make(Input::all(), $rules);
 			if ($validator->fails()) {
-				return Redirect::to('login')
+				return Redirect::route('login')
 					->withErrors($validator) // send back all errors to the login form
 					->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
 			}
@@ -70,7 +70,7 @@ class LoginController extends BaseController {
 			
 			if (Sentry::authenticate($credentials, $remember))
 				// validation successful!
-				return Redirect::intended('home');
+				return Redirect::intended('/');
 		}
 		catch (exception $e)
 		{
@@ -104,7 +104,7 @@ class LoginController extends BaseController {
 					$errors->add('general', 'unknown login error.');
 			}			
 			
-			return Redirect::to('login')
+			return Redirect::route('login')
 				->withErrors($errors) // send back all errors to the login form
 				->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
 		}
@@ -113,7 +113,7 @@ class LoginController extends BaseController {
 	public function logout()
 	{
 		Sentry::logout();
-		return Redirect::to('home');
+		return Redirect::route('home');
 	}
 
 }
