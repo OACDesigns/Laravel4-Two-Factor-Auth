@@ -25,7 +25,7 @@ class SentryAddTwoStageLoginGroups extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('users', function(Blueprint $table) {			
+		Schema::table('groups', function(Blueprint $table) {			
     		$table->dropColumn('force_multifactor_login');
 		});
 	}
