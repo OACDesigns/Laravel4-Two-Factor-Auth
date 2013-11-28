@@ -1,7 +1,7 @@
-Laravel-Two-Factor-Auth
+Laravel 4: Two-Factor Auth
 =======================
+TFA is becoming pretty standard for web apps it seems. Here is a barebones implementation of two-factor authentication using Laravel 4 with the Sentry 2 bundle.
 
-Two factor login in Laravel 4, using Sentry 2.
 
 ##
 
