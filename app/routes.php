@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/home', array( 'before' => 'auth', 'as' => 'home', function()
 {
-	return View::make('hello');
-});
+	return View::make('home');
+}));
+
+
+//login and logout
+Route::get('login', array('as' => 'login', 'uses' => 'LoginController@showLogin') );
+Route::post('login', 'LoginController@login');
+Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout') );
